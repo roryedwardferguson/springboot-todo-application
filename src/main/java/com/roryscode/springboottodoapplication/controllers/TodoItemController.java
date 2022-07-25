@@ -16,8 +16,8 @@ public class TodoItemController {
     private TodoItemRepository todoItemRepository;
 
     @GetMapping("/")
-    public ModelAndView index(){
-        logger.debug("request to GET index");
+    public ModelAndView index() {
+        logger.info("request to GET index");
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("todoItems", todoItemRepository.findAll());
         return modelAndView;

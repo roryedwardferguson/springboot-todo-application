@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="">
-        <meta name="viewport" content="width=device-width, initial=scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css}" />
     </head>
 
@@ -23,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="item: ${todoItems}" th:class="${item.isComplete} ? success : warning">
+                    <tr th:each="item: ${todoItems}" th:class="${item.complete} ? success : warning">
                         <td>
                             <div class="btn btn-group-sm" role="group">
                                 <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}">Edit</a>
@@ -32,7 +32,7 @@
                         </td>
                         <td th:text="${item.id}">item_id</td>
                         <td th:text="${item.description}">item_description</td>
-                        <td th:text="${item.isComplete}">item_isComplete</td>
+                        <td th:text="${item.complete}">item_complete</td>
                         <td th:text="${item.createdDate}">item_createdDate</td>
                         <td th:text="${item.modifiedDate}">item_modifiedDate</td>
                     </tr>

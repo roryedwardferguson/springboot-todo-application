@@ -22,7 +22,7 @@ public class TodoItem {
 
     @Getter
     @Setter
-    private boolean isComplete;
+    private boolean complete;
 
     @Getter
     @Setter
@@ -36,7 +36,7 @@ public class TodoItem {
 
     public TodoItem(String description) {
         this.description = description;
-        this.isComplete = false;
+        this.complete = false;
         this.createdDate = Instant.now();
         this.modifiedDate = Instant.now();
 
@@ -44,8 +44,8 @@ public class TodoItem {
 
     @Override
     public String toString() {
-        return String.format("TodoItem{id=%d, description='%s', isComplete='%s', createdDate='%s', modifiedDate='%s'}",
-                id, description, isComplete, createdDate, modifiedDate);
+        return String.format("TodoItem{id=%d, description='%s', complete='%s', createdDate='%s', modifiedDate='%s'}",
+                id, description, complete, createdDate, modifiedDate);
     }
 
 

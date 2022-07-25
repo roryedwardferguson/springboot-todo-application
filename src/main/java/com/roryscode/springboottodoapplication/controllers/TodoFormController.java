@@ -23,6 +23,7 @@ public class TodoFormController {
         TodoItem todoItem = todoItemRepository
                 .findById(id).
                 orElseThrow(() -> new IllegalArgumentException("TodoItem id:" + id + "not found"));
+
         model.addAttribute("todo", todoItem);
         return "update-todo-item";
     }

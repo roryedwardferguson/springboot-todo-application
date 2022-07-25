@@ -28,5 +28,15 @@ public class TodoFormController {
         return "update-todo-item";
     }
 
+    @GetMapping("/delete/{id}")
+    public String deleteTodoItem(@PathVariable("id") long id, Model model) {
+        TodoItem todoItem = todoItemRepository
+                .findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("TodoItem id: " + id + " not found"));
+
+        todoItemRepository.delete(todoItem);
+        return "redirect:/";
+    }
+
 
 }

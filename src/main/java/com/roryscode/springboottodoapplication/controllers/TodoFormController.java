@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class TodoFormController {
@@ -17,6 +18,11 @@ public class TodoFormController {
 
     @Autowired
     private TodoItemRepository todoItemRepository;
+
+    @GetMapping("/create-todo")
+    public String showCreateForm(TodoItem todoItem) {
+        return "add-todo-item";
+    }
 
     @GetMapping("/edit/{id}")
     public String showUpdateForm(@PathVariable("id") long id, Model model) {
@@ -37,6 +43,7 @@ public class TodoFormController {
         todoItemRepository.delete(todoItem);
         return "redirect:/";
     }
+
 
 
 }

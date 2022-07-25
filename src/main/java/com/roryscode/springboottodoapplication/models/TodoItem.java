@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.Instant;
 
 @Entity
@@ -18,6 +19,7 @@ public class TodoItem {
 
     @Getter
     @Setter
+    @NotBlank(message="Description is required")
     private String description;
 
     @Getter
